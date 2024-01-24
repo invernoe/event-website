@@ -1,0 +1,25 @@
+main {
+    background: linear-gradient(0deg, rgba(255, 74, 74, 0.5), rgba(255, 74, 74, 0.5)), url(../assets/events-heavenly-header.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+nav {
+    display: none;
+    width: 0;
+    z-index: 10;
+}
+
+nav h2 {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav h2:hover,
+nav button:hover {
+    color: rgb(117, 0, 0) !important;
+}
+
+.context-menu {
+    top: 60%;
+}
