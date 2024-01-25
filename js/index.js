@@ -1,3 +1,5 @@
+const characterLimit = 100;
+
 $(".context-menu").click((_) => {
   $("nav").css("display", "block");
   $("nav").animate({ width: "250px" }, 500);
@@ -15,10 +17,15 @@ $(".singer-item-list h1").click((e) => {
   $(e.target).parent().next(".singer-item-text").slideToggle(500);
 });
 
-//DOM ready event
-$(function () {
-  //count down until 25/7/2025 midnight GMT+2 time
-  countDownUntilDate("2025-07-25T00:00:00+02:00");
+$("textarea").on("input", (e) => {
+  let remainingLimit = characterLimit - $(e.target).val().length;
+  $("#characterLimitNumber").text(remainingLimit);
+
+  if (remainingLimit == 1) {
+    $("#characterLimitText").text("Character Remaining");
+  } else {
+    $("#characterLimitText").text("Characters Remaining");
+  }
 });
 
 function countDownUntilDate(dateStr) {
@@ -30,15 +37,17 @@ function countDownUntilDate(dateStr) {
   let interval = setInterval(() => {
     //get difference in days, hours, minutes and seconds
     let days = Math.floor(timeUntilCountdownFinished / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((timeUntilCountdownFinished / (1000 * 60 * 60)) % 24); 
-    let minutes = Math.floor((timeUntilCountdownFinished / (1000 * 60)) % 60); 
-    let seconds = Math.floor((timeUntilCountdownFinished / 1000) % 60); 
+    let hours = Math.floor(
+      (timeUntilCountdownFinished / (1000 * 60 * 60)) % 24
+    );
+    let minutes = Math.floor((timeUntilCountdownFinished / (1000 * 60)) % 60);
+    let seconds = Math.floor((timeUntilCountdownFinished / 1000) % 60);
 
     //set these values to countdown html elements
-    $("#days").text(days);
-    $("#hours").text(hours);
-    $("#minutes").text(minutes);
-    $("#seconds").text(seconds);
+    $("#days").text(days + " D");
+    $("#hours").text(hours + " h");
+    $("#minutes").text(minutes + " m");
+    $("#seconds").text(seconds + " s");
 
     //if time has reached zero then stop countdown
     if (timeUntilCountdownFinished == 0) {
@@ -49,3 +58,9 @@ function countDownUntilDate(dateStr) {
     }
   }, 1000);
 }
+
+//DOM ready event
+$(function () {
+  //count down until 25/7/2025 midnight GMT+2 time
+  countDownUntilDate("2025-07-25T00:00:00+02:00");
+});
