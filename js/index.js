@@ -28,6 +28,12 @@ $("textarea").on("input", (e) => {
   }
 });
 
+$('nav h2').click(e => {
+  let destinationSectionId = $(e.target).text().toLowerCase();
+  let destinationSection = $("#" + destinationSectionId);
+  $('html, body').animate({scrollTop: $(destinationSection).offset().top}, 2000);
+});
+
 function countDownUntilDate(dateStr) {
   let futureDate = new Date(dateStr);
   let currentDate = Date.now();

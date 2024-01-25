@@ -1,3 +1,7 @@
+:root {
+    scroll-behavior: auto;
+}
+
 main {
     background: linear-gradient(0deg, rgba(255, 74, 74, 0.5), rgba(255, 74, 74, 0.5)), url(../assets/events-heavenly-header.jpg);
     background-position: center center;
@@ -41,10 +45,6 @@ nav button:hover {
     background: linear-gradient(0deg, rgba(255, 74, 74, 0.5), rgba(255, 74, 74, 0.5)), url(../assets/invitation.jpg);
     background-position: center center;
     background-size: cover;
-}
-
-.text-red {
-    color: #D62E33;
 }
 
 .icon-container {
