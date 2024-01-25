@@ -23,3 +23,22 @@ nav button:hover {
 .context-menu {
     top: 60%;
 }
+
+.bg-red-50 {
+    background-color: rgba(214, 46, 51 , 0.5);
+}
+
+.singer-item-text {
+    padding: 0.5rem;
+    display: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.countdown {
+    background: linear-gradient(0deg, rgba(255, 74, 74, 0.5), rgba(255, 74, 74, 0.5)), url(../assets/invitation.jpg);
+    background-position: center center;
+    background-size: cover;
+}
